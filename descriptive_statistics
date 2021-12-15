@@ -1,0 +1,9 @@
+# Descriptive stats
+def descriptive_stats(df):
+    import numpy as np
+    import pandas as pd
+    new_df = df.describe(include='all')
+    new_df=new_df.T
+    new_df['Missing'] = df.isnull().sum()
+    new_df = new_df.replace({np.nan: 'None'})
+    return new_df.T
